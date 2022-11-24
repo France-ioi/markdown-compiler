@@ -1,0 +1,161 @@
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 16px;
+}
+
+a {
+    color: #2c7df7;
+    text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: #2c7df7;
+    text-decoration: underline;
+}
+
+/* Imported from OpenTezos customcss.css */
+code {
+    position: relative;
+    top: -1px;
+}
+
+small {
+    margin-bottom: 10px;
+}
+
+small[classname="figure"]::before {
+    content: "\a";
+    white-space: pre;
+}
+
+.p,
+p {
+    font-size: 18px;
+    line-height: 1.8em;
+    margin: 11px 0;
+}
+
+.green {
+    color: #00ff28;
+    margin-bottom: 10px;
+}
+
+.red {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    display: block;
+    margin-bottom: 16px;
+}
+
+thead {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    border-bottom-width: 2px;
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+img {
+    max-width: 99vw;
+}
+
+details {
+    background-color: rgb(238, 249, 253);
+    border: 1px solid #4cb3d4;
+    border-radius: 0.4rem;
+    padding: 16px;
+}
+
+details[open] summary {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #4cb3d4;
+}
+
+summary::marker {
+    color: #4cb3d4;
+}
+
+.admonition {
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    border-left: 5px solid #aaa;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.admonition.admonition-tip {
+    background-color: rgb(230, 246, 230);
+    border-left-color: rgb(0, 148, 0);
+    color: rgb(0, 49, 0);
+}
+
+.admonition.admonition-info {
+    background-color: rgb(238, 249, 253);
+    border-left-color: rgb(76, 179, 212);
+    color: rgb(25, 60, 71);
+}
+
+.admonition.admonition-caution {
+    background-color: rgb(255, 248, 230);
+    border-left-color: rgb(230, 167, 0);
+    color: rgb(77, 56, 0);
+}
+
+.admonition.admonition-danger {
+    background-color: rgb(255, 235, 236);
+    border-left-color: rgb(255, 50, 56);
+    color: rgb(75, 17, 19);
+}
+
+.admonition-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.admonition-title i.fas {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+a.hash-link {
+    opacity: 0;
+}
+
+a.hash-link::before {
+    content: "#";
+}
+
+h1:hover a.hash-link,
+h2:hover a.hash-link,
+h3:hover a.hash-link,
+h4:hover a.hash-link,
+h5:hover a.hash-link,
+h6:hover a.hash-link {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+pre[class*="language-"] {
+    background-color: rgb(246, 248, 250);
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
