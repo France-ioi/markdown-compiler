@@ -29,7 +29,7 @@ function makeTitle(type, title) {
 function filterInfoBlocks() {
     return [{
         type: 'lang',
-        filter: function (text) {
+        filter: function (text, converter) {
             var lines = text.split("\n");
             var inside = false;
             var resultLines = [];
@@ -39,7 +39,7 @@ function filterInfoBlocks() {
             lines.forEach(function (line) {
                 if (line.startsWith(':::')) {
                     if (inside) {
-                        resultLines.push('<div class="admonition admonition-' + type + '">' + makeTitle(type, title) + insideLines.join("\n") + '</div>');
+                        resultLines.push('<div class="admonition admonition-' + type + '">' + makeTitle(type, title) + converter.makeHtml(insideLines.join("\n")) + '</div>');
                         insideLines = [];
                     } else {
                         var info = line.substr(3);
