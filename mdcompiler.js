@@ -193,8 +193,8 @@ export function compileMarkdown(data) {
 }
 
 export function parseHeader(data) {
-    // parse header between "--" lines
-    var lines = data.split("\n");
+    // parse header between "---" lines
+    var lines = data.split(/\r?\n/);
     var headers = {};
     var i;
     for (i = 0; i < lines.length; i++) {
@@ -211,6 +211,6 @@ export function parseHeader(data) {
     }
     return {
         headers: headers,
-        body: lines.slice(i + 1).join("\n")
+        body: lines.slice(i > 0 ? i + 1 : 0).join("\n")
     }
 }
