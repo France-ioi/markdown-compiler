@@ -1,7 +1,7 @@
 {
-  "name": "markdown",
+  "name": "markdown-compiler",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "mdcompiler.js",
   "license": "MIT",
   "scripts": {
     "build": "webpack build --mode production --progress",
