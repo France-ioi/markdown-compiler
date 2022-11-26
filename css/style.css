@@ -1,6 +1,9 @@
 body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     margin: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
 }
 
 a {
@@ -72,14 +75,15 @@ tr:nth-child(odd) {
 }
 
 img {
-    max-width: 99vw;
+    max-width: 98vw;
 }
 
-@media (min-width: 1010px) {
+@media (min-width: 1000px) {
     img {
-        max-width: 1000px;
+        max-width: 980px;
     }
 }
+
 details {
     background-color: rgb(238, 249, 253);
     border: 1px solid #4cb3d4;
