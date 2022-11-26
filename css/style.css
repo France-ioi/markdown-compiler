@@ -75,6 +75,11 @@ img {
     max-width: 99vw;
 }
 
+@media (min-width: 1010px) {
+    img {
+        max-width: 1000px;
+    }
+}
 details {
     background-color: rgb(238, 249, 253);
     border: 1px solid #4cb3d4;
