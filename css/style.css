@@ -16,6 +16,7 @@ a:active,
 a:focus {
     color: #2c7df7;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 /* Imported from OpenTezos customcss.css */
