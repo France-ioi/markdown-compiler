@@ -163,8 +163,42 @@ function filterFixes() {
     return [{
         type: 'output',
         filter: function (html) {
+            // Open external links in new tabs
             html = html.replace(/<a href="http/g, '<a target="_blank" href="http');
-            html = html.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1"></a>');
+
+            // Fix image links
+            var imgMatches = html.matchAll(/!\[(.*?)\]\((.*?)\)/gm);
+            if (imgMatches) {
+                imgMatches = [...imgMatches];
+                imgMatches.forEach(function (match) {
+                    var alt = match[1];
+                    var src = match[2];
+                    var title = '';
+
+                    if (src.startsWith('./')) {
+                        src = src.substring(2);
+                    }
+
+                    var spaceIndex = src.indexOf(' ');
+                    if (spaceIndex > 0) {
+                        title = src.substring(spaceIndex + 1);
+                        src = src.substring(0, spaceIndex);
+                        if (title.startsWith('"') && title.endsWith('"')) {
+                            title = title.substring(1, title.length - 1);
+                        }
+                    }
+
+                    var img = '<img src="' + src + '"';
+                    if (alt) {
+                        img += ' alt="' + alt + '"';
+                    }
+                    if (title) {
+                        img += ' title="' + title + '"';
+                    }
+                    img += '>';
+                    html = html.replace(match[0], img);
+                });
+            }
             return html;
         }
     }]
