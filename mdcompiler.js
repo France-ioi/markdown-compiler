@@ -68,12 +68,12 @@ function filterInfoBlocks() {
 
 function filterImports() {
     return [{
-        type: 'lang',
+        type: 'output',
         filter: function (text) {
             var lines = text.split("\n");
             var resultLines = [];
             lines.forEach(function (line) {
-                if (!line.startsWith('import ')) {
+                if (!line.startsWith('<p>import ')) {
                     resultLines.push(line);
                 }
             });
@@ -108,7 +108,7 @@ function filterUnderscoreKatex() {
 
 var showdownKatexWithConfig = showdownKatex({
     displayMode: true,
-    throwOnError: true, //allows katex to fail silently
+    throwOnError: true,
     errorColor: '#ff0000',
     delimiters: [
         { left: "$", right: "$", display: false },
@@ -159,6 +159,20 @@ function filterHeaderLinks() {
     }]
 }
 
+function filterNotificationBars() {
+    return [{
+        type: 'lang',
+        filter: function (text, converter) {
+            var matches = [...text.matchAll(/<NotificationBar>[^]*?<p>([^]+?)<\/p>[^]*?<\/NotificationBar>/gm)];
+            matches.forEach(function (match) {
+                var content = converter.makeHtml(match[1]);
+                text = text.replace(match[0], '<div class="notification-bar">' + content + '</div>');
+            });
+            return text;
+        }
+    }]
+}
+
 function filterFixes() {
     return [{
         type: 'output',
@@ -199,6 +213,14 @@ function filterFixes() {
                     html = html.replace(match[0], img);
                 });
             }
+
+            // Fix dollar literals
+            html = html.replace(/\\(\$)/g, '$1');
+
+            // Fix highlight escaping
+            html = html.replace(/&lt;span([^]*?)&gt;/g, '<span$1>');
+            html = html.replaceAll('&lt;/span&gt;', '</span>');
+
             return html;
         }
     }]
@@ -210,6 +232,7 @@ export function compileMarkdown(data) {
         tables: true,
         strikethrough: true,
         simplifiedAutoLink: true,
+        disableForced4SpacesIndentedSublists: true,
         extensions: [
             filterImports,
             filterInfoBlocks,
@@ -217,6 +240,7 @@ export function compileMarkdown(data) {
             showdownKatexWithConfig,
             highlightWithPrism,
             filterHeaderLinks,
+            filterNotificationBars,
             filterFixes
         ]
     });

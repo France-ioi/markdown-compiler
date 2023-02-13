@@ -127,7 +127,8 @@ summary::marker {
     color: rgb(77, 56, 0);
 }
 
-.admonition.admonition-danger {
+.admonition.admonition-danger,
+.admonition.admonition-warning {
     background-color: rgb(255, 235, 236);
     border-left-color: rgb(255, 50, 56);
     color: rgb(75, 17, 19);
@@ -168,4 +169,28 @@ pre[class*="language-"] {
     border: none;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+div.notification-bar {
+    background-color: #f7fafc;
+    border: 1px solid #ededed;
+    border-radius: 8px;
+    color: #667184;
+    line-height: 24px;
+    margin: 30px 0;
+    padding: 16px 40px
+}
+
+div.notification-bar,
+div.notification-bar p {
+    font-size: 14px;
+}
+
+small p {
+    font-size: 1em;
+}
+
+blockquote {
+    border-left: 2px solid #dadde1;
+    margin-left: 0px;
+    padding-left: 1rem;
 }
