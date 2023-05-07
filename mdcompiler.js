@@ -226,7 +226,30 @@ function filterFixes() {
     }]
 }
 
-export function compileMarkdown(data) {
+function injectVariables(data, vars) {
+    // Inject variables if specified
+    if (!vars) { return data; }
+    return data.replace(/<:?([A-Z_@]+):>/g, (_, innerGroup) => {
+        const splitted = innerGroup.split('@');
+        var variable = vars[splitted[0]] || '';
+        switch (splitted[1]) {
+            case "UPP":
+                variable = variable.toUpperCase();
+                break;
+            case "LOW":
+                variable = variable.toLowerCase();
+                break;
+            case "CAP":
+                variable = variable.charAt(0).toUpperCase() + variable.slice(1)
+                break
+            default:
+                break;
+        }
+        return variable || splitted[0];
+    });
+}
+
+export function compileMarkdown(data, vars) {
     var converter = new showdown.Converter({
         ghCompatibleHeaderId: true,
         tables: true,
@@ -245,6 +268,7 @@ export function compileMarkdown(data) {
         ]
     });
 
+    data = injectVariables(data, vars);
     var html = converter.makeHtml(data);
 
     return html;
