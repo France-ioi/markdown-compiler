@@ -6,6 +6,13 @@ body {
     max-width: 1000px;
 }
 
+@media (max-width: 400px) {
+    body {
+        padding: 0px;
+        margin: 2px;
+    }
+}
+
 a {
     color: #2c7df7;
     text-decoration: none;
