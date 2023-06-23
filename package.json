@@ -7,8 +7,7 @@
     "build": "webpack build --mode production --progress",
     "watch": "webpack --watch --progress",
     "css": "webpack build --config webpack.css.js --progress",
-    "watch-css": "webpack build --watch --config webpack.css.js --progress",
-    "bundle": "webpack build --config webpack.bundle.js --progress"
+    "watch-css": "webpack build --watch --config webpack.css.js --progress"
   },
   "dependencies": {
     "@babel/core": "^7.18.9",
