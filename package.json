@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack build --mode production --progress",
-    "watch": "webpack --watch --progress",
+    "watch": "webpack build --mode production --watch --progress",
     "css": "webpack build --config webpack.css.js --progress",
     "watch-css": "webpack build --watch --config webpack.css.js --progress"
   },

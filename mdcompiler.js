@@ -173,6 +173,15 @@ function filterNotificationBars() {
     }]
 }
 
+function filterWrapTables() {
+    return [{
+        type: 'output',
+        filter: function (html) {
+            return html.replace(/<table>/g, '<div class="table-wrapper"><table>').replace(/<\/table>/g, '</table></div>');
+        }
+    }];
+}
+
 function filterFixes() {
     return [{
         type: 'output',
@@ -264,6 +273,7 @@ export function compileMarkdown(data, vars) {
             highlightWithPrism,
             filterHeaderLinks,
             filterNotificationBars,
+            filterWrapTables,
             filterFixes
         ]
     });

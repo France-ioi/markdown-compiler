@@ -1,5 +1,5 @@
 body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", BlinkMacSystemFont, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     max-width: 1000px;
     margin: 2px;
 }
@@ -198,4 +198,9 @@ blockquote {
     border-left: 2px solid #dadde1;
     margin-left: 0px;
     padding-left: 1rem;
+}
+
+div.table-wrapper {
+    overflow-x: auto;
+    max-width: 100%;
 }
