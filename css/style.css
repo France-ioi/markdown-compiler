@@ -204,3 +204,53 @@ div.table-wrapper {
     overflow-x: auto;
     max-width: 100%;
 }
+
+div.callout {
+    position: relative;
+    border-radius: 1.5rem;
+    padding: 24px;
+    padding-left: 72px;
+    margin: 32px;
+}
+
+div.callout > svg {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+}
+
+div.callout-title {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: bold;
+}
+
+div.callout-note {
+    background-color: rgb(240, 249, 255);
+    color: rgb(7, 89, 133)
+}
+
+div.callout-note div.callout-title {
+    color: rgb(12, 74, 110);
+}
+
+div.callout-warning {
+    background-color: rgb(255, 251, 235);
+    color: rgb(146, 64, 14);
+}
+
+div.callout-warning div.callout-title {
+    color: rgb(120, 53, 15);
+}
+
+svg.callout-icon {
+    width: 32px;
+    height: 32px;
+    flex: none;
+}
+
+figcaption {
+    font-size: 0.875em;
+    margin-top: 0.85em;
+    color: rgb(100, 116, 139);
+}
