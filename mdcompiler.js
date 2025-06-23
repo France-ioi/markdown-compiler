@@ -459,8 +459,10 @@ export function parseHeader(data) {
             break;
         }
         var split = line.split(":");
-        if (split.length == 2) {
-            headers[split[0].trim()] = split[1].trim();
+        if (split.length > 1) {
+            var headerName = split.shift().trim();
+            var headerValue = split.join(':').trim();
+            headers[headerName] = headerValue;
         } else if (i > 0) {
             console.log('invalid header line: ' + line);
         }
